@@ -6,8 +6,10 @@ using System.Configuration;
 using System.IdentityModel.Services;
 using System.IdentityModel.Tokens;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Security;
 using System.Security.Claims;
 using System.Text;
 using System.Threading;
@@ -101,7 +103,7 @@ namespace ProvisionMe
                 //lstMSQRoles.Items.Add(new ListItem { Text = "MQF", Value = "MQF" });
                 //lstMSQRoles.Items.Add(new ListItem { Text = "QV", Value = "QV" });
             }
-
+            ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
             using (HttpClient client = new HttpClient())
             {
                 client.BaseAddress = new Uri(ConfigurationManager.AppSettings.Get("serviceUrl"));
