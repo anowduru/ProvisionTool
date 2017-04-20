@@ -90,7 +90,7 @@ namespace ProvisionMe
 
                 var userIdentity = Thread.CurrentPrincipal.Identity.Name;
 
-                txtUserName.Text = userIdentity;
+                //txtUserName.Text = userIdentity;
             }
 
             if (!IsPostBack)
